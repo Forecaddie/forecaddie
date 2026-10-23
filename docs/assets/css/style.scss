@@ -1,0 +1,85 @@
+---
+---
+
+@import "jekyll-theme-minimal";
+
+// Forecaddie overrides for the Minimal theme.
+//
+// The diagrams switch to light ink when the reader's system is in dark mode,
+// so the page must switch with them or the text vanishes on white. Dark mode
+// follows prefers-color-scheme; light mode keeps the theme's own look.
+
+:root {
+  color-scheme: light dark;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  $bg:        #0d1117;
+  $surface:   #161b22;
+  $border:    #30363d;
+  $text:      #c9d1d9;
+  $heading:   #e6edf3;
+  $muted:     #8b949e;
+  $link:      #58a6ff;
+  $link-hover:#79c0ff;
+
+  body {
+    background-color: $bg;
+    color: $text;
+  }
+
+  h1, h2, h3, h4, h5, h6, strong, dt, th {
+    color: $heading;
+  }
+
+  a { color: $link; }
+  a:hover, a:focus { color: $link-hover; }
+  a small, a:hover small, small { color: $muted; }
+
+  blockquote {
+    border-left-color: $border;
+    color: $muted;
+  }
+
+  code, pre { color: $text; }
+
+  pre, .highlight, .highlight pre {
+    background: $surface;
+    border-color: $border;
+  }
+
+  th, td { border-bottom-color: $border; }
+  hr { background: $border; }
+
+  section { border-color: $border; }
+
+  kbd {
+    background-color: $surface;
+    border-color: $border;
+    box-shadow: inset 0 -1px 0 $border;
+    color: $text;
+  }
+
+  // Syntax highlighting: the bundled rouge-github palette is built for white
+  // and uses near-black for several token types. Map the groups onto a dark
+  // palette instead.
+  .highlight {
+    color: $text;
+
+    .c, .cm, .c1, .cs, .cd, .cp, .ch { color: $muted; font-style: italic; }
+    .err { color: #ffa198; background: transparent; }
+    .k, .kc, .kd, .kn, .kp, .kr, .o, .ow { color: #ff7b72; font-weight: normal; }
+    .kt, .nc, .nt, .nn { color: #ffa657; }
+    .s, .sb, .sc, .sd, .s2, .se, .sh, .si, .sx, .s1, .ss, .sr, .dl { color: #a5d6ff; }
+    .m, .mf, .mh, .mi, .mo, .il, .mb, .mx { color: #79c0ff; }
+    .na, .nb, .bp, .nv, .vc, .vg, .vi, .no { color: #79c0ff; }
+    .nf, .fm, .ne, .nl, .nd { color: #d2a8ff; }
+    .p, .n, .nx, .w { color: $text; }
+    .gd { color: #ffa198; background-color: rgba(248, 81, 73, .15); }
+    .gi { color: #7ee787; background-color: rgba(46, 160, 67, .15); }
+    .gh, .gu { color: $muted; }
+    .ge { font-style: italic; }
+    .gs { font-weight: bold; }
+    .gr, .gt { color: #ffa198; }
+  }
+}
