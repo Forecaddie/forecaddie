@@ -1,0 +1,7 @@
+title: Forecaddie
+description: Publish apps through Caddy over a NetBird mesh — approval-gated, no LAN exposure, no hand-edited upstreams.
+url: https://forecaddie.dev
+theme: jekyll-theme-minimal
+markdown: kramdown
+exclude:
+  - CNAME
